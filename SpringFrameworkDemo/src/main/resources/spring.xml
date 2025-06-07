@@ -3,26 +3,22 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
-
-    <context:component-scan base-package="demo"></context:component-scan>
-<!--
-    <bean id="teacher" class="demo.Teacher">
-        <property name="qualification" value="MCA"></property>
-        <property name="address" ref="address"></property>  This is the example for injecting
-        other object into teacher object using setter Injection
-    </bean>
-        This is the example for the setter Injection
-    <bean id="jl" class="demo.JuniorLecture">    </bean>
-    <bean id="address" class="demo.Address">
-        <property name="phoneNumber" value="9581972063"></property>
-        <property name="colony" value="Hyderabad"></property>
-    </bean>
-
-    <bean id="teacher" class="demo.Teacher">
-        <constructor-arg value="MCA1"> </constructor-arg>
-    </bean> This is using the constructor based setter
-
--->
+       
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context
+                https://www.springframework.org/schema/context/spring-context.xsd">
+      
+	<bean id= "doctor" class="com.ravitejajella.Doctor">
+		<property name="qualification" value="MBBS"></property>
+		<property name="nurse" ref="nurse"></property>
+		<constructor-arg name="qualification" value="Dental"></constructor-arg>
+		<constructor-arg name="nurse" ref="nurse"></constructor-arg>
+		
+	</bean>
+	<bean id = "nurse" class = "com.ravitejajella.Nurse"></bean>
+		
+	 <context:component-scan base-package="com"></context:component-scan>
+	
+		
 </beans>
-
